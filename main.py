@@ -18,9 +18,9 @@ API_HASH = "1faadd9cc60374bca1e88c2f44e3ee2f"  # Replace with your API Hash
 BOT_TOKEN = "7766721449:AAGOyP976fRrUPEDWNIpmc701uTsnVurnGE"  # Replace with your bot token
 
 # MongoDB configuration
-MONGO_URL = "mongodb+srv://anushkabot:anushkabot@cluster0.rg84dqj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"  # Replace with your MongoDB URL
-DB_NAME = "anushkarebot"  # Replace with your database name
-COLLECTION_NAME = "anushkareboot"  # Your Media collection name
+MONGO_URL = "mongodb+srv://TheAutoFilterBot:TheAutoFilterBot@cluster0.d7c2e.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"  # Replace with your MongoDB URL
+DB_NAME = "TheAutoFilterBot"  # Replace with your database name
+COLLECTION_NAME = "TheAutoFilterBot"  # Your Media collection name
 
 # Target chat ID where files will be uploaded
 TARGET_CHAT_ID = "-1002478164714"  # Replace with target chat ID
