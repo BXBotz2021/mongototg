@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 # Bot configuration
 API_ID = "7813390"  # Replace with your API ID
 API_HASH = "1faadd9cc60374bca1e88c2f44e3ee2f"  # Replace with your API Hash
-BOT_TOKEN = "7766721449:AAGOyP976fRrUPEDWNIpmc701uTsnVurnGE"  # Replace with your bot token
+BOT_TOKEN = "2015610141:AAGXO7HTsrIUeDFfjyHhZHR6WqLA08Lg07I"  # Replace with your bot token
 
 # MongoDB configuration
 MONGO_URL = "mongodb+srv://TheAutoFilterBot:TheAutoFilterBot@cluster0.d7c2e.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"  # Replace with your MongoDB URL
