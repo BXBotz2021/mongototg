@@ -37,6 +37,30 @@ class MongoToTelegramUploader:
         self.db = self.mongo[DB_NAME]
         self.collection = self.db[COLLECTION_NAME]
         
+    async def check_connection(self):
+        """Check MongoDB connection and print database info"""
+        try:
+            # List all databases
+            databases = await self.mongo.list_database_names()
+            logger.info(f"Available databases: {databases}")
+            
+            # List all collections in the selected database
+            collections = await self.db.list_collection_names()
+            logger.info(f"Collections in {DB_NAME}: {collections}")
+            
+            # Get a sample document
+            sample_doc = await self.collection.find_one()
+            if sample_doc:
+                logger.info("Sample document structure:")
+                logger.info(sample_doc)
+            else:
+                logger.warning(f"No documents found in collection {COLLECTION_NAME}")
+                
+            return True
+        except Exception as e:
+            logger.error(f"MongoDB connection error: {str(e)}")
+            return False
+        
     async def count_documents(self):
         """Count total documents in collection"""
         return await self.collection.count_documents({})
@@ -47,9 +71,18 @@ class MongoToTelegramUploader:
             # Start the bot
             await self.bot.start()
             
+            # Check MongoDB connection first
+            if not await self.check_connection():
+                logger.error("Failed to connect to MongoDB. Please check your connection settings.")
+                return
+            
             # Get total number of documents
             total_docs = await self.count_documents()
             logger.info(f"Found {total_docs} documents to upload")
+            
+            if total_docs == 0:
+                logger.warning("No documents found to upload. Please check your database and collection names.")
+                return
             
             # Initialize counters
             success = 0
@@ -66,6 +99,7 @@ class MongoToTelegramUploader:
                     
                     if not file_id:
                         logger.warning(f"No file_id found for document: {file_name}")
+                        logger.info(f"Document structure: {doc}")
                         failed += 1
                         continue
                         
@@ -82,6 +116,7 @@ class MongoToTelegramUploader:
                 except Exception as e:
                     failed += 1
                     logger.error(f"Failed to upload {file_name}: {str(e)}")
+                    logger.error(f"Document that failed: {doc}")
                     
                 finally:
                     pbar.update(1)
