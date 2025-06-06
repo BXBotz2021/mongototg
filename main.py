@@ -13,17 +13,17 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Bot configuration
-API_ID = "YOUR_API_ID"  # Replace with your API ID
-API_HASH = "YOUR_API_HASH"  # Replace with your API Hash
-BOT_TOKEN = "YOUR_BOT_TOKEN"  # Replace with your bot token
+API_ID = "7813390"  # Replace with your API ID
+API_HASH = "1faadd9cc60374bca1e88c2f44e3ee2f"  # Replace with your API Hash
+BOT_TOKEN = "7766721449:AAGOyP976fRrUPEDWNIpmc701uTsnVurnGE"  # Replace with your bot token
 
 # MongoDB configuration
-MONGO_URL = "YOUR_MONGO_URL"  # Replace with your MongoDB URL
-DB_NAME = "YOUR_DB_NAME"  # Replace with your database name
-COLLECTION_NAME = "Media"  # Your Media collection name
+MONGO_URL = "mongodb+srv://anushkabot:anushkabot@cluster0.rg84dqj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"  # Replace with your MongoDB URL
+DB_NAME = "anushkarebot"  # Replace with your database name
+COLLECTION_NAME = "anushkareboot"  # Your Media collection name
 
 # Target chat ID where files will be uploaded
-TARGET_CHAT_ID = "YOUR_CHANNEL_OR_GROUP_ID"  # Replace with target chat ID
+TARGET_CHAT_ID = "-1002478164714"  # Replace with target chat ID
 
 class MongoToTelegramUploader:
     def __init__(self):
